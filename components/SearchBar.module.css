@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container input{
+    background-color: #fff;
+    border-radius: 20px;
+    font-size: 19px;
+    padding: 5px 10px;
+}
