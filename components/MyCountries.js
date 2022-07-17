@@ -1,73 +1,85 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './MyCountries.module.css'
+
+
 const MyCountries = ({ country }) => {
-    // console.log(country[0].name.common)
+    // console.log(country)
 
-    {
-        country.map((count) => {
-            // console.log(count)
+    // {
+    //     country.map((count) => {
+    //         // console.log(count)
 
+    //     })
+    // }
+
+    const [mycountry, setmycountry] = useState(country)
+
+    const [populationflag, setpopulationflag] = useState(0)
+    const [areaflag, setareaflag] = useState(0)
+    const [nameflag, setnameflag] = useState(0)
+
+
+    const orderbyPopu = (country) => {
+        
+        let data = [...country].sort((a, b) => {
+            a.population < b.population ? 1 : -1
         })
+        setmycountry(data)
+
     }
+
+
+
     return (
         <>
 
+            <div className={styles.countrytable_outer}>
 
-            {/* <div className={styles.countriestable}>
-                <div className={styles.innertable}>
+                <div className={styles.countrytable_inner}>
+                    <div className={styles.head}>
 
-                    <div className={styles.namecol}>
-                        <h1> Name </h1>
+                        <button> Name </button>
+                        <button> Flags </button>
+                        <button> Area </button>
+                        <button onClick={() =>  orderbyPopu(country) }> Population </button>
+                    </div>
 
+                    <div className={styles.content}>
 
                         {
-                            country.map((count) => {
+                            mycountry.map((count) => {
 
                                 return <>
-                                    <p> {count.name.common} </p>
-                                    <p> {count.area} </p>
-                                    <p> {count.population} </p>
+
+                                    <div className={styles.country_row}>
+
+                                        <div><h1>Name: {count.name.common}</h1></div>
+
+                                        <div> <img src={count.flags.png} className={styles.country_flags} /></div>
+
+                                        <div> Area: {count.area}</div>
+                                        <div > Population: {count.population}</div>
+
+
+                                    </div>
+                                    <hr />
                                 </>
+
 
                             })
                         }
-                    </div>
-                    <div className={styles.namecol}>
-                        <h1> Area </h1>
-                    </div>
-                    <div className={styles.namecol}>
-                        <h1> Population </h1>
+
+
                     </div>
                 </div>
-
-            </div> */}
-
-
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Area</th>
-                    <th>Population</th>
-                </tr>
-
-                {
-                    country.map((count) => {
-
-                        return <>
+            </div>
 
 
-                            <tr key={count.name}>
-                                <td> {count.name.common}</td>
-                                <td>{count.area}</td>
-                                <td> {count.population}</td>
-                            </tr>
 
-                        </>
 
-                    })
-                }
 
-            </table>
+
+
         </>
     )
 }

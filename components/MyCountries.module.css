@@ -1,0 +1,41 @@
+.countrytable_inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.countrytable_inner .head{
+    background-color: rgb(27, 213, 201);
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.countrytable_inner .head button{
+    background-color: rgb(18, 42, 114);
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    width: 25%;
+}
+.countrytable_inner .head button:hover{
+   cursor: pointer;
+   color: rgb(158, 181, 32);
+
+}
+.countrytable_inner .content{
+   width: 100%;
+
+}
+
+/* .country_row{
+    background-color: transparent;
+    margin: 10px 0px;
+    display: flex;
+    box-shadow: 0px 0px 5px 1px rgb(213 , 213, 213);
+    border-radius:30px;
+    padding: 0px 10px;
+} */
